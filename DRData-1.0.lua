@@ -173,26 +173,6 @@ local spellsAndProvidersByCategory = {
 		[ 80483] = true, -- Arcane Torrent (Focus version)
 	},
 
-	--[[ DISARMS ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#7
-	disarm = {
-		-- Hunter
-		[ 50541] = true, -- Clench (Scorpid pet)
-		[ 91644] = true, -- Snatch (Bird of Prey pet)
-		-- Monk
-		[117368] =   true, -- Grapple Weapon
-		[126458] =   true, -- Grapple Weapon (Symbiosis)
-		[137461] = 116844, -- Ring of Peace (Disarm effect)
-		-- Priest
-		[ 64058] = true, -- Psychic Horror (Disarm effect)
-		-- Rogue
-		[ 51722] = true, -- Dismantle
-		-- Warlock
-		[118093] = true, -- Disarm (Voidwalker/Voidlord)
-		-- Warrior
-		[   676] = true, -- Disarm
-	},
-
 	--[[ FEARS ]]--
 	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#5
 	fear = {
