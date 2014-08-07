@@ -295,7 +295,6 @@ Data.categoryNames = {
 Data.pveDR = {
 	["ctrlstun"] = true,
 	["taunt"] = true,
-	-- ["bindelemental"] = true, -- Why was this added to pveDR? Just tested and it definitely does not have PvE DR.
 }
 
 -- Public APIs
