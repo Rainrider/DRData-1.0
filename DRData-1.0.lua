@@ -9,11 +9,8 @@ local L = {
 	["Roots"] = "Roots",
 	["Stuns"] = "Stuns",
 	["Cyclone"] = "Cyclone",
-	["Mesmerizes"] = "Mesmerizes",
-	["Mesmerizes (short)"] = "Mesmerizes (short)",
+	["Incapacitates"] = "Incapacitates",
 	["Fears"] = "Fears",
-	["Horrors"] = "Horrors",
-	["Mind Control"] = "Mind Control",
 	["Silences"] = "Silences",
 	["Taunts"] = "Taunts",
 	["Roots (short)"] = "Roots (short)",
@@ -86,56 +83,44 @@ local spellsAndProvidersByCategory = {
 		[ 36213] = true, -- Angered Earth (Earth Elemental)
 	},
 
-	--[[ MESMERIZES ]]--
-	-- Note: reuse the previously-used "disorient" category to avoid breaking addons
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#4
-	disorient = {
+	--[[ INCAPACITATES ]]--
+	incapacitate = {
 		-- Druid
-		[  2637] = true, -- Hibernate
+		[    99] =   true, -- Incapacitating Roar (talent)
 		-- Hunter
 		[  3355] = {1499, 60192}, -- Freezing Trap
-		[ 19386] = true, -- Wyvern Sting
+		[ 19386] =   true, -- Wyvern Sting
 		-- Mage
-		[   118] = true, -- Polymorph
-		[ 28272] = true, -- Polymorph (pig)
-		[ 28271] = true, -- Polymorph (turtle)
-		[ 61305] = true, -- Polymorph (black cat)
-		[ 61025] = true, -- Polymorph (serpent) -- FIXME: gone ?
-		[ 61721] = true, -- Polymorph (rabbit)
-		[ 61780] = true, -- Polymorph (turkey)
-		[ 82691] = true, -- Ring of Frost
+		[   118] =   true, -- Polymorph
+		[ 28272] =   true, -- Polymorph (pig) -- TODO: verify id
+		[ 28271] =   true, -- Polymorph (turtle) -- TODO: verify id
+		[ 61305] =   true, -- Polymorph (black cat)
+		[ 61721] =   true, -- Polymorph (rabbit) -- TODO: verify id
+		[ 61780] =   true, -- Polymorph (turkey)
+		[ 82691] = 113724, -- Ring of Frost
+		[ 31661] =   true, -- Dragon's Breath
 		-- Monk
-		[115078] = true, -- Paralysis
+		[115078] =   true, -- Paralysis
+		[123393] = 115181, -- Breath of Fire (Glyphed) -- TODO: either tooltip wrong or officially listed in the wrong category
+		[137460] = 116844, -- Ring of Peace
 		-- Paladin
-		[ 20066] = true, -- Repentance
+		[ 20066] =   true, -- Repentance (talent)
 		-- Priest
-		[  9484] = true, -- Shackle Undead
+		[  9484] =   true, -- Shackle Undead -- XXX: not officially listed
+		[ 64044] =   true, -- Psychic Horror
+		[ 88625] =   true, -- Holy Word: Chastise
+		[   605] =   true, -- Dominate Mind
 		-- Rogue
-		[  1776] = true, -- Gouge
-		[  6770] = true, -- Sap
+		[  1776] =   true, -- Gouge
+		[  6770] =   true, -- Sap
 		-- Shaman
-		[ 76780] = true, -- Bind Elemental
-		[ 51514] = true, -- Hex
+		[ 51514] =   true, -- Hex
 		-- Warlock
-		[   710] = true, -- Banish -- Glyph of Crimson Banish ?
+		[   710] =   true, -- Banish
+		[137143] = 111397, -- Blood Horror
+		[  6789] =   true, -- Mortal Coil
 		-- Pandaren
-		[107079] = true, -- Quaking Palm
-	},
-
-	--[[ SHORT MESMERIZES ]]--
-	-- Note: this category does not share diminishing returns with the above Mesmerize category.
-	-- Called "Mesmerize". http://us.battle.net/wow/en/forum/topic/10195910192#4
-	shortdisorient = {
-		-- Druid
-		[    99] = true, -- Disorienting Roar (talent)
-		-- Hunter
-		[ 19503] = true, -- Scatter Shot
-		-- Mage
-		[ 31661] = true, -- Dragon's Breath
-		-- Monk
-		[123393] = true, -- Breath of Fire (Glyphed)
-		-- Priest
-		[ 88625] = true, -- Holy Word: Chastise
+		[107079] =   true, -- Quaking Palm
 	},
 
 	--[[ SILENCES ]]--
@@ -284,16 +269,6 @@ local spellsAndProvidersByCategory = {
 		[ 64695] = true, -- Earthgrab Totem
 	},
 
-	--[[ HORROR ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#5
-	horror = {
-		-- Priest
-		[ 64044] = true, -- Psychic Horror (Horror effect)
-		-- Warlock
-		[111397] = true, -- Blood Horror
-		[  6789] = true, -- Mortal Coil
-	},
-
 	--[[ MISC ]]--
 	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#9
 
@@ -301,11 +276,6 @@ local spellsAndProvidersByCategory = {
 		-- Druid
 		[ 33786] = true, -- Cyclone
 		[113506] = true, -- Cyclone (Symbiosis)
-	},
-
-	mc = {
-		-- Priest
-		[   605] = true, -- Dominate Mind
 	},
 
 	--[[ KNOCKBACK ]]--
@@ -353,11 +323,8 @@ Data.categoryNames = {
 	["shortroot"] = L["Roots (short)"],
 	["ctrlstun"] = L["Stuns"],
 	["cyclone"] = L["Cyclone"],
-	["disorient"] = L["Mesmerizes"],
-	["shortdisorient"] = L["Mesmerizes (short)"],
+	["incapacitate"] = L["Incapacitates"],
 	["fear"] = L["Fears"],
-	["horror"] = L["Horrors"],
-	["mc"] = L["Mind Control"],
 	["silence"] = L["Silences"],
 	["taunt"] = L["Taunts"],
 	["knockback"] = L["Knockbacks"], -- NEEDS PROPER TESTING WITH DEPENDENT ADDONS
