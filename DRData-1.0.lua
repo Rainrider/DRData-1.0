@@ -12,7 +12,6 @@ local L = {
 	["Disorients"] = "Disorients",
 	["Silences"] = "Silences",
 	["Taunts"] = "Taunts",
-	["Roots (short)"] = "Roots (short)",
 	["Knockbacks"] = "Knockbacks",
 }
 
@@ -212,52 +211,34 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ ROOTS ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#2
-
 	ctrlroot = {
 		-- Death Knight
-		[ 96294] = true, -- Chains of Ice (Chilblains Root)
+		[ 96294] =  45524, -- Chains of Ice (with Chilblains talent)
 		-- Druid
-		[   339] = true, -- Entangling Roots
-		[113275] = true, -- Entangling Roots (Symbiosis)
-		[ 19975] = true, -- Nature's Grasp (Uses different spellIDs than Entangling Roots for the same spell)
-		[102359] = true, -- Mass Entanglement (talent)
+		[   339] =   true, -- Entangling Roots
+		[113770] = 102703, -- Entangling Roots (through Force of Nature (Feral talent))
+		[102359] =   true, -- Mass Entanglement (talent)
 		-- Hunter
-		[ 53148] = 61685, -- Charge (Tenacity pet)
-		[ 50245] = true, -- Pin (Crab)
-		[  4167] = true, -- Web (Spider)
-		[ 54706] = true, -- Venom Web Spray (Silithid)
-		[ 90327] = true, -- Lock Jaw (Dog)
-		[136634] = true, -- Narrow Escape (passive talent)
+		[ 53148] =  61685, -- Charge (Tenacity pet) -- XXX: warrior charge is not on DR, why this?
+		[136634] =    781, -- Narrow Escape (talent)
+		[135373] = { -- Entrapment (Survival passive)
+			13809, -- Ice Trap
+			82941, -- Ice Trap (Trap Launcher)
+			34600, -- Snake Trap
+			82948, -- Snake Trap (Trap Launcher) -- FIXME: bugged on beta
+		},
 		-- Mage
-		[   122] = true, -- Frost Nova
-		[110693] = true, -- Frost Nova (Symbiosis)
-		[ 33395] = true, -- Freeze (Water Elemental)
+		[   122] =   true, -- Frost Nova
+		[ 33395] =   true, -- Freeze (Water Elemental)
+		[111340] = 111264, -- Ice Ward (Talent)
 		-- Monk
 		[116706] = 116095, -- Disable
 		-- Priest
-		[ 87194] = true, -- Glyph of Mind Blast
-		[114404] = true, -- Void Tendrils
-		-- Rogue
-		[115197] = true, -- Partial Paralysis (Shiv effect with Paralytic Poison)
+		[ 87194] =   8092, -- Glyph of Mind Blast
+		[114404] = 108920, -- Void Tendrils
 		-- Shaman
-		[ 63685] = true, -- Freeze (Frozen Power talent)
-		-- Warrior
-		[107566] = true, -- Staggering Shout (talent)
-	},
-
-	--[[ SHORT ROOTS ]]--
-	-- Note: this category does not share diminishing returns with the above Roots category.
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#2
-	shortroot = {
-		-- Hunter
-		[135373] = true, -- Entrapment (passive)
-		-- Mage
-		[111264] = true, -- Ice Ward -- ID NEED CONFIRMATION
-		-- Monk
-		[123407] = 115073, -- Spinning Fire Blossom
-		-- Shaman
-		[ 64695] = true, -- Earthgrab Totem
+		[ 63685] =   8056, -- Freeze (Frost Shock with Frozen Power talent)
+		[ 64695] =  51485, -- Earthgrab Totem (talent)
 	},
 
 	--[[ KNOCKBACK ]]--
@@ -302,7 +283,6 @@ end
 -- DR Category names
 Data.categoryNames = {
 	["ctrlroot"] = L["Roots"],
-	["shortroot"] = L["Roots (short)"],
 	["ctrlstun"] = L["Stuns"],
 	["incapacitate"] = L["Incapacitates"],
 	["disorient"] = L["Disorients"],
