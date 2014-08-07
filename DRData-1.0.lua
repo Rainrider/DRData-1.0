@@ -141,36 +141,28 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ SILENCES ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#6
 	silence = {
 		-- Death Knight
-		[108194] = true, -- Asphyxiate (if target is immune to stun)
-		[ 47476] = true, -- Strangulate
+		[ 47476] =  true, -- Strangulate
 		-- Druid
-		[114237] = true, -- Glyph of Fae Silence
-		-- Hunter
-		[ 34490] = true, -- Silencing Shot
+		[114238] =   770, -- Glyph of Fae Silence
+		[ 81261] = 78675, -- Solar Beam
 		-- Mage
-		[102051] = true, -- Frostjaw
-		[ 55021] = true, -- Counterspell
-		-- Monk
-		[137460] = 116844, -- Ring of Peace (Silence effect)
-		[116709] = 116705, -- Spear Hand Strike
+		[102051] =  true, -- Frostjaw (talent)
 		-- Paladin
-		[ 31935] = true, -- Avenger's Shield
+		[ 31935] =  true, -- Avenger's Shield
 		-- Priest
-		[ 15487] = true, -- Silence
+		[ 15487] =  true, -- Silence
 		-- Rogue
-		[  1330] = true, -- Garrote
-		-- Warlock
-		[ 24259] = 19647, -- Spell Lock (Fel Hunter)
-		[115782] = 115781, -- Optical Blast (Observer)
+		[  1330] =   703, -- Garrote
 		-- Blood Elf
-		[ 25046] = true, -- Arcane Torrent (Energy version)
-		[ 28730] = true, -- Arcane Torrent (Mana version)
-		[ 50613] = true, -- Arcane Torrent (Runic power version)
-		[ 69179] = true, -- Arcane Torrent (Rage version)
-		[ 80483] = true, -- Arcane Torrent (Focus version)
+		[ 25046] =  true, -- Arcane Torrent (Energy)
+		[ 28730] =  true, -- Arcane Torrent (Mana)
+		[ 50613] =  true, -- Arcane Torrent (Runic power)
+		[ 69179] =  true, -- Arcane Torrent (Rage)
+		[ 80483] =  true, -- Arcane Torrent (Focus)
+		[129597] =  true, -- Arcane Torrent (Chi)
+		[155145] =  true, -- Arcane Torrent (Holy Power)
 	},
 
 	--[[ FEARS ]]--
