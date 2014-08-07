@@ -8,9 +8,8 @@ if( not Data ) then return end
 local L = {
 	["Roots"] = "Roots",
 	["Stuns"] = "Stuns",
-	["Cyclone"] = "Cyclone",
 	["Incapacitates"] = "Incapacitates",
-	["Fears"] = "Fears",
+	["Disorients"] = "Disorients",
 	["Silences"] = "Silences",
 	["Taunts"] = "Taunts",
 	["Roots (short)"] = "Roots (short)",
@@ -148,33 +147,25 @@ local spellsAndProvidersByCategory = {
 		[155145] =  true, -- Arcane Torrent (Holy Power)
 	},
 
-	--[[ FEARS ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#5
-	fear = {
+	--[[ DISORIENTS ]]--
+	disorient = {
 		-- Druid
-		[113004] = true, -- Intimidating Roar (Symbiosis)
-		[113056] = true, -- Intimidating Roar (Symbiosis)
-		-- Hunter
-		[  1513] = true, -- Scare Beast
+		[ 33786] = true, -- Cyclone
 		-- Paladin
-		[105421] = true, -- Blinding Light
 		[ 10326] = true, -- Turn Evil
-		[145067] = true, -- Turn Evil (Evil is a Point of View)
+		[145067] = true, -- Turn Evil (with Evil is a Point of View talent) -- FIXME: removed in a recent build
 		-- Priest
-		[  8122] = true, -- Psychic Scream
-		[113792] = true, -- Psychic Terror (Psyfiend)
+		[  8122] = true, -- Psychic Scream (Talent)
 		-- Rogue
 		[  2094] = true, -- Blind
 		-- Warlock
-		[  5782] = true, -- Fear
-		[118699] = 5782, -- Fear -- new SpellID in MoP, Blood Fear uses same ID
-		[  5484] = true, -- Howl of Terror
+		[118699] = 5782, -- Fear
+		[130616] = 5782, -- Fear with Glyph of Fear -- FIXME: verify cetegory
+		[  5484] = true, -- Howl of Terror (Talent)
 		[115268] = true, -- Mesmerize (Shivarra)
 		[  6358] = true, -- Seduction (Succubus)
-	--	[104045] = true, -- Sleep (Metamorphosis) -- FIXME: verify this is the correct category
 		-- Warrior
-		[  5246] = true, -- Intimidating Shout (main target)
-		[ 20511] = true, -- Intimidating Shout (secondary targets)
+		[  5246] = true, -- Intimidating Shout
 	},
 
 	--[[ STUNS ]]--
@@ -269,15 +260,6 @@ local spellsAndProvidersByCategory = {
 		[ 64695] = true, -- Earthgrab Totem
 	},
 
-	--[[ MISC ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#9
-
-	cyclone = {
-		-- Druid
-		[ 33786] = true, -- Cyclone
-		[113506] = true, -- Cyclone (Symbiosis)
-	},
-
 	--[[ KNOCKBACK ]]--
 	knockback = {
 		-- Death Knight
@@ -322,9 +304,8 @@ Data.categoryNames = {
 	["ctrlroot"] = L["Roots"],
 	["shortroot"] = L["Roots (short)"],
 	["ctrlstun"] = L["Stuns"],
-	["cyclone"] = L["Cyclone"],
 	["incapacitate"] = L["Incapacitates"],
-	["fear"] = L["Fears"],
+	["disorient"] = L["Disorients"],
 	["silence"] = L["Silences"],
 	["taunt"] = L["Taunts"],
 	["knockback"] = L["Knockbacks"], -- NEEDS PROPER TESTING WITH DEPENDENT ADDONS
@@ -334,7 +315,6 @@ Data.categoryNames = {
 Data.pveDR = {
 	["ctrlstun"] = true,
 	["taunt"] = true,
-	["cyclone"] = true,
 	-- ["bindelemental"] = true, -- Why was this added to pveDR? Just tested and it definitely does not have PvE DR.
 }
 
