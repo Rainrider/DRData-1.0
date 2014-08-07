@@ -168,7 +168,7 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ STUNS ]]--
-	ctrlstun = {
+	stun = {
 		-- Death Knight
 		[108194] =   true, -- Asphyxiate
 		[ 91800] =  47481, -- Gnaw (Ghoul)
@@ -211,7 +211,7 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ ROOTS ]]--
-	ctrlroot = {
+	root = {
 		-- Death Knight
 		[ 96294] =  45524, -- Chains of Ice (with Chilblains talent)
 		-- Druid
@@ -282,8 +282,8 @@ end
 
 -- DR Category names
 Data.categoryNames = {
-	["ctrlroot"] = L["Roots"],
-	["ctrlstun"] = L["Stuns"],
+	["root"] = L["Roots"],
+	["stun"] = L["Stuns"],
 	["incapacitate"] = L["Incapacitates"],
 	["disorient"] = L["Disorients"],
 	["silence"] = L["Silences"],
@@ -293,7 +293,7 @@ Data.categoryNames = {
 
 -- Categories that have DR in PvE as well as PvP
 Data.pveDR = {
-	["ctrlstun"] = true,
+	["stun"] = true,
 	["taunt"] = true,
 }
 
@@ -333,7 +333,7 @@ function Data:GetCategories()
 	return Data.categoryNames
 end
 
--- Next DR, if it's 1.0, next is 0.50, if it's 0.[50] = "ctrlroot",next is 0.[25] = "ctrlroot",and such
+-- Next DR, if it's 1.0, next is 0.50, if it's 0.[50] = "root",next is 0.[25] = "root",and such
 function Data:NextDR(diminished)
 	if( diminished == 1 ) then
 		return 0.50
