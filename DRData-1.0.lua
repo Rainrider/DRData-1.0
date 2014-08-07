@@ -340,15 +340,17 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ KNOCKBACK ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#8
 	knockback = {
 		-- Death Knight
-		[108199] = true, -- Gorefiend's Grasp
+		[108199] = true, -- Gorefiend's Grasp (talent)
 		-- Druid
 		[102793] = true, -- Ursol's Vortex
-		[132469] = true, -- Typhoon
+		[ 61391] = 132469, -- Typhoon
 		-- Hunter
-		[119403] = true, -- Glyph of Explosive Trap
+		[149575] = { -- Glyph of Explosive Trap
+			13813, -- Explosive Trap
+			82939, -- Explosive Trap (Trap Launcher)
+		},
 		-- Shaman
 		[ 51490] = true, -- Thunderstorm
 		-- Warlock
