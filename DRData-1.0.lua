@@ -9,13 +9,11 @@ local L = {
 	["Roots"] = "Roots",
 	["Stuns"] = "Stuns",
 	["Cyclone"] = "Cyclone",
-	["Disarms"] = "Disarms",
 	["Mesmerizes"] = "Mesmerizes",
 	["Mesmerizes (short)"] = "Mesmerizes (short)",
 	["Fears"] = "Fears",
 	["Horrors"] = "Horrors",
 	["Mind Control"] = "Mind Control",
-	["Stuns (short)"] = "Stuns (short)",
 	["Silences"] = "Silences",
 	["Taunts"] = "Taunts",
 	["Roots (short)"] = "Roots (short)",
@@ -195,75 +193,46 @@ local spellsAndProvidersByCategory = {
 	},
 
 	--[[ STUNS ]]--
-	-- cf. http://us.battle.net/wow/en/forum/topic/10195910192#3
 	ctrlstun = {
 		-- Death Knight
-		[108194] = true, -- Asphyxiate
-		[ 91800] = true, -- Gnaw (Ghoul)
-		[ 91797] = true, -- Monstrous Blow (Dark Transformation Ghoul)
-		[115001] = true, -- Remorseless Winter
+		[108194] =   true, -- Asphyxiate
+		[ 91800] =  47481, -- Gnaw (Ghoul)
+		[ 91797] =  47481, -- Monstrous Blow (Dark Transformation Ghoul)
+		[115001] = 108200, -- Remorseless Winter (talent)
 		-- Druid
-		[102795] = true, -- Bear Hug
-		[ 22570] = true, -- Maim
-		[  5211] = true, -- Mighty Bash
-		[  9005] = true, -- Pounce
-		[102546] = true, -- Pounce (Incarnation)
-		[113801] = true, -- Bash (treants in feral spec) (Bugged by blizzard - it instantly applies all 3 levels of DR right now, making any target instantly immune to ctrlstuns)
+		[ 22570] =   true, -- Maim
+		[  5211] =   true, -- Mighty Bash
+		[163505] =   1822, -- Rake
 		-- Hunter
 		[117526] = 109248, -- Binding Shot
-		[ 24394] = 19577, -- Intimidation
-		[ 90337] = true, -- Bad Manner (Monkey pet)
-		[126246] = true, -- Lullaby (Crane pet)
-		[126423] = true, -- Petrifying Gaze (Basilisk pet)
-		[126355] = true, -- Quill (Porcupine pet)
-		[ 56626] = true, -- Sting (Wasp pet)
-		[ 50519] = true, -- Sonic Blast (Bat pet)
-		[ 96201] = true, -- Web Wrap (Shale Spider pet)
+		[ 24394] =  19577, -- Intimidation
 		-- Mage
-		[118271] = true, -- Combustion
-		[ 44572] = true, -- Deep Freeze
+		[ 44572] =   true, -- Deep Freeze
 		-- Monk
 		[119392] =   true, -- Charging Ox Wave
-		[122242] = 122057, -- Clash
 		[120086] = 113656, -- Fists of Fury
 		[119381] =   true, -- Leg Sweep
 		-- Paladin
-		[115752] = true, -- Blinding Light (Glyphed)
-		[   853] = true, -- Hammer of Justice
-		[110698] = true, -- Hammer of Justice (Symbiosis)
-		[119072] = true, -- Holy Wrath
-		[105593] = true, -- Fist of Justice
+		[   853] =   true, -- Hammer of Justice
+		[119072] =   true, -- Holy Wrath (protection)
+		[105593] =   true, -- Fist of Justice (talent)
 		-- Rogue
-		[  1833] = true, -- Cheap Shot
-		[   408] = true, -- Kidney Shot
+		[  1833] =   true, -- Cheap Shot
+		[   408] =   true, -- Kidney Shot
 		-- Shaman
-		[118345] = true, -- Pulverize (Primal Earth Elemental)
-		[118905] = true, -- Static Charge (Capacitor Totem)
+		[118345] =   true, -- Pulverize (Primal Earth Elemental)
+		[118905] = 108269, -- Static Charge (Capacitor Totem)
+		[ 77505] =  61882, -- Earthquake -- TODO: verify effect id -- XXX: not officially listed
 		-- Warlock
-		[ 89766] = true, -- Axe Toss (Felguard)
-		[ 30283] = true, -- Shadowfury
-		[ 22703] = 1122, -- Summon Infernal
+		[ 89766] =   true, -- Axe Toss (Felguard)
+		[ 30283] =   true, -- Shadowfury
+		[ 22703] =   1122, -- Summon Infernal
 		-- Warrior
-		[132168] = true, -- Shockwave
-		[132169] = true, -- Storm Bolt
+		[132168] =  46968, -- Shockwave
+		[132169] = 107570, -- Storm Bolt
+		[118895] = 118000, -- Dragon Roar (talent) -- XXX: not officially listed
 		-- Tauren
-		[ 20549] = true, -- War Stomp
-	},
-
-	--[[ SHORT STUNS ]]--
-	-- cf.  http://us.battle.net/wow/en/forum/topic/10195910192#3
-	-- Notes: 1. this category does not share diminishing returns with the above Stuns category.
-	-- 2. Reuse the previously-used true category to avoid breaking addons.
-	rndstun = {
-		-- Rogue
-		[113953] = true, -- Paralysis (stun effect of Paralytic Poison)
-		-- Warrior
-		[118895] = true, -- Dragon Roar (talent)
-		-- Shaman
-		[ 77505] = true, -- Earthquake
-		-- Warrior
-		[   100] = true, -- Charge
-		[118000] = true, -- Dragon Roar
+		[ 20549] =   true, -- War Stomp
 	},
 
 	--[[ ROOTS ]]--
@@ -384,13 +353,11 @@ Data.categoryNames = {
 	["shortroot"] = L["Roots (short)"],
 	["ctrlstun"] = L["Stuns"],
 	["cyclone"] = L["Cyclone"],
-	["disarm"] = L["Disarms"],
 	["disorient"] = L["Mesmerizes"],
 	["shortdisorient"] = L["Mesmerizes (short)"],
 	["fear"] = L["Fears"],
 	["horror"] = L["Horrors"],
 	["mc"] = L["Mind Control"],
-	["rndstun"] = L["Stuns (short)"],
 	["silence"] = L["Silences"],
 	["taunt"] = L["Taunts"],
 	["knockback"] = L["Knockbacks"], -- NEEDS PROPER TESTING WITH DEPENDENT ADDONS
@@ -399,7 +366,6 @@ Data.categoryNames = {
 -- Categories that have DR in PvE as well as PvP
 Data.pveDR = {
 	["ctrlstun"] = true,
-	["rndstun"] = true,
 	["taunt"] = true,
 	["cyclone"] = true,
 	-- ["bindelemental"] = true, -- Why was this added to pveDR? Just tested and it definitely does not have PvE DR.
